@@ -1,0 +1,20 @@
+{
+  "name": "grocery-list-management",
+  "version": "1.0.0",
+  "description": "A full-stack grocery list management app with Express and MongoDB",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": ["grocery", "crud", "express", "mongodb", "rest-api"],
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

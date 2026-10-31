@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Organize your groceries with a simple grocery list manager.">
+  <title>FreshList — Grocery Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <div class="brand"><span class="brand-icon">✳</span> FreshList</div>
+      <div class="hero-copy">
+        <p class="eyebrow">YOUR EVERYDAY SHOPPING COMPANION</p>
+        <h1>Good food starts<br><span>with a good list.</span></h1>
+        <p class="subheading">Plan your essentials, keep track of prices, and make every shopping trip easier.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="fruit fruit-one">🍊</div>
+        <div class="fruit fruit-two">🥑</div>
+        <div class="fruit fruit-three">🥕</div>
+        <div class="fruit fruit-four">🍋</div>
+        <div class="art-circle"></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="stats" aria-label="Shopping summary">
+        <article class="stat-card"><span class="stat-label">TOTAL ITEMS</span><strong id="totalItems">0</strong><span class="stat-note">in your list</span></article>
+        <article class="stat-card"><span class="stat-label">STILL TO BUY</span><strong id="remainingItems">0</strong><span class="stat-note">items remaining</span></article>
+        <article class="stat-card"><span class="stat-label">ESTIMATED TOTAL</span><strong id="totalCost">₹0.00</strong><span class="stat-note">based on quantity × price</span></article>
+      </section>
+
+      <div class="content-grid">
+        <section class="panel form-panel">
+          <div class="section-heading">
+            <div><p class="eyebrow">KEEP IT ORGANIZED</p><h2 id="formTitle">Add to your list</h2></div>
+            <span class="heading-icon">＋</span>
+          </div>
+          <form id="groceryForm">
+            <input type="hidden" id="itemId">
+            <label for="name">Grocery name</label>
+            <input id="name" name="name" placeholder="e.g. Fresh milk" required minlength="2" maxlength="100">
+            <div class="two-columns">
+              <div><label for="quantity">Quantity</label><input id="quantity" name="quantity" type="number" min="1" step="1" value="1" required></div>
+              <div><label for="price">Price per item (₹)</label><input id="price" name="price" type="number" min="0" step="0.01" value="0" required></div>
+            </div>
+            <label for="category">Category</label>
+            <select id="category" name="category">
+              <option>Vegetables</option><option>Fruits</option><option>Dairy</option><option>Bakery</option><option>Meat & Seafood</option><option>Snacks</option><option>Household</option><option>Other</option>
+            </select>
+            <button class="primary-button full-button" type="submit" id="submitButton">＋ Add grocery</button>
+            <button class="text-button full-button hidden" type="button" id="cancelButton">Cancel editing</button>
+            <p id="message" class="message" role="status" aria-live="polite"></p>
+          </form>
+          <div class="tip"><span>✦</span><p><strong>Little tip</strong><br>Add prices to keep an eye on your shopping budget.</p></div>
+        </section>
+
+        <section class="panel list-panel">
+          <div class="list-top">
+            <div><p class="eyebrow">THE PLAN</p><h2>Your grocery list</h2></div>
+            <span class="count-pill" id="itemCount">0 items</span>
+          </div>
+          <div class="list-controls">
+            <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search your list..." aria-label="Search groceries"></label>
+            <select id="filterSelect" aria-label="Filter grocery items"><option value="all">All items</option><option value="remaining">To buy</option><option value="purchased">Purchased</option></select>
+          </div>
+          <div id="groceryList" class="grocery-list"><div class="loading-state">Loading your groceries…</div></div>
+          <div class="list-footer"><span id="progressText">Your list is ready when you are.</span><button id="clearSearch" class="text-button" type="button">Clear filters</button></div>
+        </section>
+      </div>
+    </main>
+    <footer><span>FreshList</span> · Made for simpler shopping <span class="footer-dot">●</span> Grocery List Management System</footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
