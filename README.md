@@ -1,95 +1,84 @@
-# FreshList — Grocery List Management System
+# Grocery List Management System
 
-A full-stack grocery list management application built with HTML, CSS, JavaScript, Node.js, Express, and MongoDB.
+A full-stack Grocery List Management System built using Node.js, Express.js, MongoDB, HTML, CSS, and JavaScript.
 
 ## Features
 
-- Create, read, update, and delete grocery items (CRUD)
-- Track item quantity, category, price, and purchased status
-- Mark items as purchased or unpurchased
-- Search by grocery name or category
-- Filter all items, items to buy, and purchased items
-- Dashboard summary for total items, remaining items, and estimated cost
-- Server-side validation and clear API error responses
-- Responsive layout for desktop and mobile
+- Add new grocery items
+- View all grocery items
+- Update existing items
+- Delete grocery items
+- Mark items as purchased
+- Search and filter grocery items
+- Track grocery list summaries
+- Responsive user interface
 
-## Tech stack
+## Technologies Used
 
-- Frontend: HTML, CSS, vanilla JavaScript
-- Backend: Node.js and Express.js
-- Database: MongoDB with Mongoose
-- API: REST endpoints returning JSON
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB
+- **ODM:** Mongoose
 
-## Prerequisites
+## Installation and Setup
 
-- Node.js (LTS recommended)
-- npm
-- MongoDB Community Server running locally, or a MongoDB Atlas database
+1. Clone the repository:
 
-## Setup
+   ```bash
+   git clone https://github.com/Dibbanikhil/grocery-list-management.git
+   ```
 
-1. Clone or download this repository.
-2. Install dependencies:
+2. Navigate to the project folder:
+
+   ```bash
+   cd grocery-list-management
+   ```
+
+3. Install dependencies:
 
    ```bash
    npm install
    ```
 
-3. Copy `.env.example` to `.env`.
-4. Set `MONGODB_URI` in `.env`. The example uses a local MongoDB server:
+4. Create a `.env` file in the root directory:
 
    ```env
    PORT=5000
-   MONGODB_URI=mongodb://127.0.0.1:27017/groceryDB
+   MONGODB_URI=your_mongodb_connection_string
    ```
 
-   For MongoDB Atlas, replace the value with your Atlas connection string.
-
-5. Start the app:
+5. Start the application:
 
    ```bash
    npm run dev
    ```
 
-   Or use `npm start` for a normal start.
+6. Open your browser:
 
-6. Open http://localhost:5000 in your browser.
+   `http://localhost:5000`
 
-## REST API
+## Project Structure
 
-| Method | Endpoint | Description |
-| --- | --- | --- |
-| GET | `/api/health` | Check server/database status |
-| GET | `/api/groceries` | Get all grocery items |
-| POST | `/api/groceries` | Create a grocery item |
-| PUT | `/api/groceries/:id` | Update an item |
-| DELETE | `/api/groceries/:id` | Delete an item |
-
-### Example create request
-
-`POST /api/groceries`
-
-```json
-{
-  "name": "Milk",
-  "quantity": 2,
-  "category": "Dairy",
-  "price": 30
-}
+```text
+grocery-list-management/
+├── models/
+│   └── Grocery.js
+├── public/
+│   ├── app.js
+│   ├── index.html
+│   └── style.css
+├── .env.example
+├── .gitignore
+├── package.json
+├── package-lock.json
+├── README.md
+└── server.js
 ```
 
-Price is the price per item; the dashboard estimates total cost as quantity multiplied by price.
+## Environment Variables
 
-## Important note about users
-
-This starter project currently stores a single shared grocery list. It does **not** implement individual user accounts or user-specific lists. Authentication and per-user authorization should be added before describing it as a multi-user application or deploying it for multiple users.
-
-## Security notes
-
-- Keep `.env` private and never commit database credentials.
-- The API validates input and validates MongoDB document IDs.
-- Add authentication, authorization, rate limiting, and production logging before public deployment.
+Keep your MongoDB connection string and credentials in `.env`. Never commit this file to GitHub.
 
 ## License
 
-MIT
+This project is licensed under the MIT License.
